@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         isSpinning = true;
         spinButton.disabled = true;
 
-        // Generar un número aleatorio de rotaciones (entre 8 y 12 vueltas completas)
-        const randomRotations = Math.floor(Math.random() * 4) + 8;
+        // Generar un número aleatorio de rotaciones (entre 12 y 15 vueltas completas)
+        const randomRotations = Math.floor(Math.random() * 3) + 12;
         const randomAngle = Math.floor(Math.random() * 360);
         
         // Calcular la rotación final
@@ -27,6 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             isSpinning = false;
             spinButton.disabled = false;
-        }, 5000); // 5 segundos, que coincide con la duración de la transición CSS
+        }, 4000); // Reducido a 4 segundos para que sea más dinámico
     });
 }); 

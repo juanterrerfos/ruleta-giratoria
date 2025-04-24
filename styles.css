@@ -1,0 +1,111 @@
+@import url('https://fonts.cdnfonts.com/css/sofia-pro');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sofia Pro', Arial, sans-serif;
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.roulette-container {
+    position: relative;
+    width: 90vmin;
+    height: 90vmin;
+    max-width: 600px;
+    max-height: 600px;
+    margin: 0 auto 30px;
+}
+
+.roulette-wheel {
+    width: 100%;
+    height: 100%;
+    transition: transform 5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    z-index: 1;
+}
+
+.indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#spinButton {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #677e7d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Sofia Pro', Arial, sans-serif;
+}
+
+#spinButton:hover {
+    background-color: #5a6d6c;
+    transform: scale(1.05);
+}
+
+#spinButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Orientación vertical */
+@media (max-width: 768px) and (orientation: portrait) {
+    .roulette-container {
+        width: 85vmin;
+        height: 85vmin;
+    }
+    
+    #spinButton {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+}
+
+/* Orientación horizontal */
+@media (max-width: 1024px) and (orientation: landscape) {
+    .roulette-container {
+        width: 70vmin;
+        height: 70vmin;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Dispositivos muy pequeños */
+@media (max-width: 320px) {
+    .roulette-container {
+        width: 95vmin;
+        height: 95vmin;
+    }
+    
+    #spinButton {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+} 

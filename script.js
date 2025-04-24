@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rouletteWheel = document.querySelector('.roulette-wheel');
     const spinButton = document.getElementById('spinButton');
     let isSpinning = false;
-    let currentRotation = 0;
+    let totalRotation = 0;
 
     spinButton.addEventListener('click', () => {
         if (isSpinning) return;
@@ -10,23 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
         isSpinning = true;
         spinButton.disabled = true;
 
-        // Generar un número aleatorio de rotaciones (entre 12 y 15 vueltas completas)
-        const randomRotations = Math.floor(Math.random() * 3) + 12;
+        // Generar un número aleatorio de rotaciones (entre 15 y 18 vueltas completas)
+        const randomRotations = Math.floor(Math.random() * 3) + 15;
         const randomAngle = Math.floor(Math.random() * 360);
         
         // Calcular la rotación final
-        const finalRotation = currentRotation + (randomRotations * 360) + randomAngle;
+        totalRotation += (randomRotations * 360) + randomAngle;
         
         // Aplicar la rotación
-        rouletteWheel.style.transform = `rotate(${finalRotation}deg)`;
-        
-        // Actualizar la rotación actual
-        currentRotation = finalRotation % 360;
+        rouletteWheel.style.transform = `rotate(${totalRotation}deg)`;
         
         // Habilitar el botón después de que termine la animación
         setTimeout(() => {
             isSpinning = false;
             spinButton.disabled = false;
-        }, 4000); // Reducido a 4 segundos para que sea más dinámico
+        }, 3000);
     });
 }); 
